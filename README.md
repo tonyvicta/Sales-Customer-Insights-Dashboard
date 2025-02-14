@@ -1,4 +1,4 @@
-# BI-Solution-Development-Snowflake-Power-B
+# BI-Solution-Development-Snowflake-Power-BI
 
 /BI-Snowflake-PowerBI
 ├── README.md
