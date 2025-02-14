@@ -1,11 +1,2 @@
-# BI-Solution-Development-Snowflake-Power-BI
-
-/BI-Snowflake-PowerBI
-├── README.md
-├── data/  # Sample datasets
-├── scripts/  # SQL & ETL scripts
-├── reports/  # Power BI reports
-├── dashboards/  # Power BI dashboards
-├── docs/  # Documentation
-├── notebooks/  # Jupyter or Python scripts (if applicable)
-└── config/  # Configuration files (YAML, JSON)
+# Project Scope:
+As a Freelance BI Developer, this project aims to design and develop a Business Intelligence (BI) solution that integrates data from various sources into Snowflake, performs ETL operations, and provides insights via Power BI dashboards to support data-driven decision-making.
