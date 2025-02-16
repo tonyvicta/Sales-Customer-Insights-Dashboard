@@ -16,4 +16,12 @@ Document requirements in the docs/ folder.
 # 📌 Step 2: Set Up Snowflake Warehouse
 
 Create a Snowflake Account (if not already available).
+
 Set Up Database & Schemas:
+
+```sql
+CREATE DATABASE BI_ANALYTICS;
+CREATE SCHEMA RAW;
+CREATE SCHEMA STAGING;
+CREATE SCHEMA ANALYTICS;
+```
