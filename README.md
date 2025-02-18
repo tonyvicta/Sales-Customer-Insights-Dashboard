@@ -101,4 +101,107 @@ AS
 DELETE FROM STAGING.CUSTOMERS;
 ```
 
+📌 Step 4: Transform & Optimize Data in Snowflake
+Before visualizing data, clean, standardize, and optimize it for analytics.
+
+1️⃣ Create Analytical Tables (Fact & Dimension Models)
+Create fact and dimension tables to improve query performance and support Power BI reporting.
+
+Create a Dimension Table for Customers
+
+```sql
+CREATE OR REPLACE TABLE ANALYTICS.DIM_CUSTOMERS AS
+SELECT 
+    Customer_ID, 
+    Name, 
+    Country, 
+    Segment
+FROM STAGING.CUSTOMERS;
+```
+
+Create a Fact Table for Transactions
+
+```sql
+
+CREATE OR REPLACE TABLE ANALYTICS.FACT_TRANSACTIONS AS
+SELECT 
+    T.Transaction_ID,
+    T.Customer_ID,
+    C.Country,
+    C.Segment,
+    T.Date,
+    T.Product_Category,
+    T.Amount
+FROM STAGING.TRANSACTIONS T
+LEFT JOIN STAGING.CUSTOMERS C
+ON T.Customer_ID = C.Customer_ID;
+
+```
+
+2️⃣ Optimize Query Performance in Snowflake
+Since Power BI will be querying the data frequently, we optimize performance by:
+
+Creating Clustering Keys
+
+```sql
+ALTER TABLE ANALYTICS.FACT_TRANSACTIONS
+CLUSTER BY (Date, Product_Category);
+```
+
+Using Materialized Views for Aggregated Reports
+
+```sql
+CREATE MATERIALIZED VIEW ANALYTICS.MONTHLY_SALES AS
+SELECT 
+    DATE_TRUNC('month', Date) AS Month,
+    Product_Category,
+    SUM(Amount) AS Total_Sales
+FROM ANALYTICS.FACT_TRANSACTIONS
+GROUP BY 1, 2;
+```
+
+
+📌 Step 5: Perform Business Analysis Using SQL Queries
+Now that the data is structured properly, let's run business queries to generate insights.
+
+1️⃣ Total Sales by Month
+
+SELECT DATE_TRUNC('month', Date) AS Month, 
+       SUM(Amount) AS Total_Sales
+FROM ANALYTICS.FACT_TRANSACTIONS
+GROUP BY 1
+ORDER BY 1;
+
+2️⃣ Top 5 Countries by Revenue
+
+```sql
+SELECT Country, 
+       SUM(Amount) AS Revenue
+FROM ANALYTICS.FACT_TRANSACTIONS
+GROUP BY Country
+ORDER BY Revenue DESC
+LIMIT 5;
+
+```
+3️⃣ Customer Segmentation Analysis
+
+```sql
+
+SELECT Segment, 
+       COUNT(DISTINCT Customer_ID) AS Customer_Count, 
+       SUM(Amount) AS Total_Spend
+FROM ANALYTICS.FACT_TRANSACTIONS
+GROUP BY Segment
+ORDER BY Total_Spend DESC;
+
+```
+
+These queries can be used to validate data before connecting to Power BI.
+
+
+📌 Step 6: Connect Power BI to Snowflake
+
+Now, connect Power BI to Snowflake to build interactive dashboards.
+
+
 
