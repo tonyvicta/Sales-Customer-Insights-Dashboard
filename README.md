@@ -101,7 +101,7 @@ AS
 DELETE FROM STAGING.CUSTOMERS;
 ```
 
-📌 Step 4: Transform & Optimize Data in Snowflake
+# 📌 Step 4: Transform & Optimize Data in Snowflake
 Before visualizing data, clean, standardize, and optimize it for analytics.
 
 1️⃣ Create Analytical Tables (Fact & Dimension Models)
@@ -161,7 +161,7 @@ GROUP BY 1, 2;
 ```
 
 
-📌 Step 5: Perform Business Analysis Using SQL Queries
+# 📌 Step 5: Perform Business Analysis Using SQL Queries
 Now that the data is structured properly, let's run business queries to generate insights.
 
 1️⃣ Total Sales by Month
@@ -199,9 +199,145 @@ ORDER BY Total_Spend DESC;
 These queries can be used to validate data before connecting to Power BI.
 
 
-📌 Step 6: Connect Power BI to Snowflake
+# 📌 Step 6: Connect Power BI to Snowflake and Build Dashboards
 
-Now, connect Power BI to Snowflake to build interactive dashboards.
+## 📊 This report provides real-time sales analysis, customer segmentation, and interactive visualizations.
+
+
+## Key Visuals in the Dashboard
+
+| **Visualization** | **Type** | **Purpose** |
+|------------------|---------|-------------|
+| **Total Sales**  | KPI Card | Displays total revenue generated |
+| **Total Customers** | KPI Card | Shows distinct customers in the dataset |
+| **Average Transaction Value** | KPI Card | Calculates the average amount per transaction |
+| **Monthly Revenue Trend** | Line Chart | Tracks revenue over time |
+| **Top Product Categories** | Bar Chart | Shows best-performing product categories |
+| **Sales by Country** | Map | Displays revenue distribution by country |
+| **Customer Spend Analysis** | Table | Lists top customers and their spending |
+
+---
+
+
+## 📌 Data Source: Snowflake
+The dashboard pulls data from **Snowflake Data Warehouse**, where it has been processed and optimized for Power BI.
+
+### **🔹 SQL Queries for Data Preparation**
+- `fact_transactions.sql`: Creates the `FACT_TRANSACTIONS` table.
+- `dim_customers.sql`: Creates the `DIM_CUSTOMERS` table.
+
+---
+
+## 📌 Step-by-Step Guide to Creating the Dashboard
+
+### **1️⃣ Load Data into Power BI**
+1. Open **Power BI Desktop**.
+2. Click **"Get Data" → "Snowflake"**.
+3. Enter your Snowflake **Server & Warehouse details**.
+4. Load **FACT_TRANSACTIONS** and **DIM_CUSTOMERS** tables.
+
+---
+
+### **2️⃣ Create Key KPI Cards**
+1. **Insert Card Visuals**:
+   - Drag **Amount** into a Card → Rename as **Total Sales**.
+   - Drag **Customer_ID** → Set Aggregation to **Distinct Count** → Rename as **Total Customers**.
+   - Drag **Amount** → Set Aggregation to **Average** → Rename as **Avg Transaction Value**.
+2. **Format KPI Cards**:
+   - Increase **font size**.
+   - Enable **shadow & background color**.
+
+---
+
+### **3️⃣ Create Revenue Trend Line Chart**
+1. Insert **Line Chart**.
+2. Set **X-axis**: `Date (FACT_TRANSACTIONS)`.
+3. Set **Y-axis**: `SUM(Amount)`.
+4. Format:
+   - Set Date **Aggregation: Monthly**.
+   - Enable **Data Labels**.
+
+---
+
+### **4️⃣ Create Product Sales Bar Chart**
+1. Insert **Bar Chart**.
+2. Set **X-axis**: `Product_Category`.
+3. Set **Y-axis**: `SUM(Amount)`.
+4. Sort by **Total Sales** in **Descending Order**.
+
+---
+
+### **5️⃣ Add Map for Sales by Country**
+1. Insert **Map Visual**.
+2. Set **Location**: `Country (DIM_CUSTOMERS)`.
+3. Set **Size**: `SUM(Amount)`.
+4. Ensure **Data Category** is set to **"Country/Region"**.
+
+---
+
+### **6️⃣ Create Customer Spend Analysis Table**
+1. Insert **Table Visual**.
+2. Add:
+   - `Customer_ID`
+   - `Name`
+   - `Segment`
+   - `SUM(Amount)`
+
+---
+
+### **7️⃣ Add Interactive Slicers**
+| **Slicer** | **Field** | **Function** |
+|------------|---------|-------------|
+| Date Range | `Date` | Filters transactions by selected dates |
+| Country | `Country` | Filters sales by location |
+| Customer Segment | `Segment` | Filters based on customer value |
+
+**Sync Slicers Across Pages**:
+1. Click on a slicer.
+2. Go to **View → Sync Slicers**.
+3. Enable **Sync across all pages**.
+
+---
+
+## 📌 Enhancements & Optimizations
+### **✅ Apply a Custom Theme**
+1. Go to **View → Themes → Customize Current Theme**.
+2. Set:
+   - **Background color**
+   - **Font style**
+   - **Visual borders & shadows**
+
+---
+
+### **✅ Publish & Share the Report**
+1. Click **"File" → "Publish" → "Power BI Service"**.
+2. Open the report in **Power BI Web**.
+3. Click **"Share"** → Copy the link.
+4. Set up **Scheduled Refresh** for live data updates.
+
+---
+
+## 📌 Folder Structure
+/PowerBI-Dashboard-Sales-Analytics ├── README.md # Documentation ├── data/ # Sample datasets (CSV) ├── reports/ # Power BI reports (.pbix) ├── scripts/ # SQL queries for Snowflake transformations ├── visuals/ # Screenshots of the dashboard └── docs/ # Additional documentation
+
+yaml
+Copy
+Edit
+
+---
+
+## 📌 Next Steps
+- 🚀 **Add Advanced DAX Measures** (e.g., YoY Growth, Customer Retention)
+- 📈 **Optimize Queries for Performance**
+- 📤 **Embed Report into SharePoint or Website**
+
+---
+
+### **🎯 Author**
+👨‍💻 **Tony Tawakali** – Power BI Developer  
+📧 **Contact:** tony@datasphered.com
+
+🚀 **Happy Dashboarding!**
 
 
 
