@@ -219,12 +219,9 @@ These queries can be used to validate data before connecting to Power BI.
 ---
 
 
-## 📌 Data Source: Snowflake
+## Data Source: Snowflake
 The dashboard pulls data from **Snowflake Data Warehouse**, where it has been processed and optimized for Power BI.
 
-### **🔹 SQL Queries for Data Preparation**
-- `fact_transactions.sql`: Creates the `FACT_TRANSACTIONS` table.
-- `dim_customers.sql`: Creates the `DIM_CUSTOMERS` table.
 
 ---
 
@@ -233,7 +230,7 @@ The dashboard pulls data from **Snowflake Data Warehouse**, where it has been pr
 ### **1️⃣ Load Data into Power BI**
 1. Open **Power BI Desktop**.
 2. Click **"Get Data" → "Snowflake"**.
-3. Enter your Snowflake **Server & Warehouse details**.
+3. Enter Snowflake **Server & Warehouse details**.
 4. Load **FACT_TRANSACTIONS** and **DIM_CUSTOMERS** tables.
 
 ---
@@ -324,6 +321,10 @@ The dashboard pulls data from **Snowflake Data Warehouse**, where it has been pr
 - 📤 **Embed Report into SharePoint or Website**
 
 ---
+
+
+
+
 
 ### **🎯 Author**
 👨‍💻 **Tony Tawakali** – Power BI Developer  
