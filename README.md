@@ -330,7 +330,7 @@ The dashboard pulls data from **Snowflake Data Warehouse**, where it has been pr
 ## 🔗 View the Live Power BI Dashboard 
 
 
-[Click here to view the report](https://app.powerbi.com/groups/me/reports/your-report-id)
+[Click here to view the report](https://app.powerbi.com/links/5QSb4wM7WK?ctid=4be1cff7-4be7-4e71-8005-72e894e81e2f&pbi_source=linkShare)
 
 
 ### **🎯 Author**
