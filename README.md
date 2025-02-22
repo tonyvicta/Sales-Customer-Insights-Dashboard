@@ -317,14 +317,6 @@ The dashboard pulls data from **Snowflake Data Warehouse**, where it has been pr
 
 ---
 
-## 📌 Folder Structure
-/PowerBI-Dashboard-Sales-Analytics ├── README.md # Documentation ├── data/ # Sample datasets (CSV) ├── reports/ # Power BI reports (.pbix) ├── scripts/ # SQL queries for Snowflake transformations ├── visuals/ # Screenshots of the dashboard └── docs/ # Additional documentation
-
-yaml
-Copy
-Edit
-
----
 
 ## 📌 Next Steps
 - 🚀 **Add Advanced DAX Measures** (e.g., YoY Growth, Customer Retention)
