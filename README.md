@@ -340,4 +340,6 @@ The dashboard pulls data from **Snowflake Data Warehouse**, where it has been pr
 🚀 **Happy Dashboarding!**
 
 
+## License
 
+This project is licensed under the MIT License.
