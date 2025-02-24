@@ -324,7 +324,7 @@ The dashboard pulls data from **Snowflake Data Warehouse**, where it has been pr
 
 
 
-![](./reports/Sales-Customer-Insights-Dashboard.png)
+![](./reports/Sales-Customer-Insights-Dashbaord.png)
 
 
 ## 🔗 View the Live Power BI Dashboard 
