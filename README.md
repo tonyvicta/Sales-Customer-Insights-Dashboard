@@ -6,7 +6,7 @@ As a Freelance BI Developer, this project aims to design and develop a Business 
 
 ## 🧰 Tech Stack
 - Snowflake (Cloud Data Platform)
-- SQL (Snowflake (Cloud Data Platform)
+- SQL (Quering, Transforming, Analysing)
 - Power BI (Visualising Data)
 
 ---
