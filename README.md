@@ -2,6 +2,17 @@
 As a Freelance BI Developer, this project aims to design and develop a Business Intelligence (BI) solution that integrates data from various sources into Snowflake, performs ETL operations, and provides insights via Power BI dashboards to support data-driven decision-making.
 
 
+---
+
+## 🧰 Tech Stack
+- Snowflake (Cloud Data Platform)
+- SQL
+- Power BI 
+
+---
+
+
+
 # 📌 Step 1: Business Requirements
 
 Identify data sources (CSV files)
